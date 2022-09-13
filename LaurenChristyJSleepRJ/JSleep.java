@@ -24,7 +24,7 @@ public class JSleep
         return 0;
     }
     public float getOriginalPrice(int discountedPrice, float discountPercentage) {
-        return (discountedPrice * (100/(100-discountPercentage)));
+        return (discountedPrice * (100 * ((1/100)-discountPercentage)));
     }
     public float getAdminFeePercentage(){
         return (5/100);
