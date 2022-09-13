@@ -1,35 +1,40 @@
 package LaurenChristyJSleepRJ;
 
-
-/**
- * Write a description of class JSleep here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class JSleep
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class JSleep
-     */
-    public JSleep()
+    public static void main(String[] args)
     {
-        // initialise instance variables
-        x = 0;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public int getHotelId(){
+        return 0;
+    }
+    public String getHotelName(){
+        return "hotel";
+    }
+    public boolean isDiscount() {
+        return true;
+    }
+    public float getDiscountedPercentage(int beforeDiscount, int afterDiscount){
+        if (afterDiscount <beforeDiscount)
+            return 0;
+        return 0;
+    }
+    public int getDiscountedPrice(int price, float discountPercentage) {
+        if (discountPercentage > 100)
+            return 0;
+        return 0;
+    }
+    public float getOriginalPrice(int discountedPrice, float discountPercentage) {
+        return (discountedPrice * (100/(100-discountPercentage)));
+    }
+    public float getAdminFeePercentage(){
+        return (5/100);
+    }
+    public float getAdminFee(int price){
+        return price * getAdminFeePercentage();
+    }
+    public float getTotalPrice(int price, int numberOfNight) {
+        int total = price * numberOfNight;
+        return (total + (total * getAdminFeePercentage()));
     }
 }
