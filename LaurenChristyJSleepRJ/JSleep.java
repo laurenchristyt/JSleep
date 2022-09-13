@@ -19,7 +19,7 @@ public class JSleep
         return 0;
     }
     public static float getDiscountedPrice(int price, float discountPercentage) {
-        if (discountPercentage > 100)
+        if (discountPercentage>100)
             return 0;
         return 0;
     }
