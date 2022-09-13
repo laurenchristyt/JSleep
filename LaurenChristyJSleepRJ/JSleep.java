@@ -2,10 +2,9 @@ package LaurenChristyJSleepRJ;
 
 public class JSleep
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
     }
-    public int getHotelId(){
+    public static int getHotelId(){
         return 0;
     }
     public String getHotelName(){
