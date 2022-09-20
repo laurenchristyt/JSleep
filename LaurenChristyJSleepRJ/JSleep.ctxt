@@ -2,24 +2,7 @@
 comment0.target=JSleep
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment10.params=price\ numberOfNight
-comment10.target=int\ getTotalPrice(int,\ int)
-comment11.params=
-comment11.target=Room\ createRoom()
 comment2.params=
-comment2.target=int\ getHotelId()
-comment3.params=
-comment3.target=java.lang.String\ getHotelName()
-comment4.params=
-comment4.target=boolean\ isDiscount()
-comment5.params=beforeDiscount\ afterDiscount
-comment5.target=float\ getDiscountPercentage(int,\ int)
-comment6.params=price\ discountPercentage
-comment6.target=int\ getDiscountedPrice(int,\ float)
-comment7.params=discountedPrice\ discountPercentage
-comment7.target=int\ getOriginalPrice(int,\ float)
-comment8.params=
-comment8.target=float\ getAdminFeePercentage()
-comment9.params=price
-comment9.target=int\ getAdminFee(int)
-numComments=12
+comment2.target=Room\ createRoom()
+comment2.text=\r\n\ \ \ \ public\ static\ int\ getHotelId()\ {\r\n\ \ \ \ \ \ \ \ return\ 0;\r\n\ \ \ \ }\r\n\ \ \ \ public\ static\ String\ getHotelName()\ {\r\n\ \ \ \ \ \ \ \ return\ "hotel";\ \ \ \ \r\n\ \ \ \ }\r\n\ \ \ \ public\ static\ boolean\ isDiscount(){\r\n\ \ \ \ \ \ \ \ return\ true;\r\n\ \ \ \ }\r\n\ \ \ \ public\ static\ float\ getDiscountPercentage(int\ beforeDiscount,\ int\ afterDiscount)\ {\r\n\ \ \ \ \ \ \ \ if\ (beforeDiscount\ <\ afterDiscount)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ 0;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ else\ if\ (((float)\ beforeDiscount\ -\ (float)\ afterDiscount)\ \=\=\ 0)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ 0;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ (((float)\ beforeDiscount\ -\ (float)\ afterDiscount)\ /\ (float)\ beforeDiscount)\ *\ (float)\ 100.0;\ \r\n\ \ \ \ }\r\n\ \ \ \ public\ static\ int\ getDiscountedPrice(int\ price,\ float\ discountPercentage)\ {\r\n\ \ \ \ \ \ \ \ if\ (discountPercentage\ >\=\ 100.0)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ 0;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ (int)\ ((float)\ price\ *\ ((float)\ 100.0\ -\ discountPercentage)\ /\ 100.0);\r\n\ \ \ \ }\r\n\ \ \ \ public\ static\ int\ getOriginalPrice(int\ discountedPrice,\ float\ discountPercentage)\ {\r\n\ \ \ \ \ \ \ \ return\ (int)\ ((float)\ discountedPrice\ *\ (100.0\ /\ (100.0\ -\ discountPercentage)));\r\n\ \ \ \ }\r\n\ \ \ \ public\ static\ float\ getAdminFeePercentage()\ {\r\n\ \ \ \ \ \ \ \ return\ (float)\ 0.05;\r\n\ \ \ \ }\r\n\ \ \ \ public\ static\ int\ getAdminFee(int\ price)\ {\r\n\ \ \ \ \ \ \ \ return\ (int)\ ((float)\ price\ *\ getAdminFeePercentage());\r\n\ \ \ \ }\r\n\ \ \ \ public\ static\ int\ getTotalPrice(int\ price,int\ numberOfNight)\ {\r\n\ \ \ \ \ \ \ \ return\ (numberOfNight\ *\ (price\ +\ getAdminFee(price)));\r\n}
+numComments=3

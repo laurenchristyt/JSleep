@@ -8,6 +8,7 @@ public class JSleep {
         System.out.println(test.price.price);
         System.out.println(test.facility);
     }
+    /*
     public static int getHotelId() {
         return 0;
     }
@@ -43,7 +44,7 @@ public class JSleep {
     }
     public static int getTotalPrice(int price,int numberOfNight) {
         return (numberOfNight * (price + getAdminFee(price)));
-    } 
+    } */
     public static Room createRoom(){
         Price price = new Price (100000, 5);
         Room room = new Room ("hotel", 30, price, Facility.Bathtub);
