@@ -1,39 +1,52 @@
 package LaurenChristyJSleepRJ;
 
-public class JSleep
-{
-    public static void main(String[] args){
+public class JSleep {
+    public static void main(String[] args) {
+        Room test = createRoom();
+        System.out.println(test.name);
+        System.out.println(test.size);
+        System.out.println(test.price.price);
+        System.out.println(test.facility);
     }
-    public static int getHotelId(){
+    public static int getHotelId() {
         return 0;
     }
-    public static String getHotelName(){
-        return "hotel";
+    public static String getHotelName() {
+        return "hotel";    
     }
-    public static boolean isDiscount() {
+    public static boolean isDiscount(){
         return true;
     }
-    public static float getDiscountedPercentage(int beforeDiscount, int afterDiscount){
-        if (afterDiscount <beforeDiscount)
+    public static float getDiscountPercentage(int beforeDiscount, int afterDiscount) {
+        if (beforeDiscount < afterDiscount) {
             return 0;
-        return 0;
-    }
-    public static float getDiscountedPrice(int price, float discountPercentage) {
-        if (discountPercentage>100)
+        }
+        else if (((float) beforeDiscount - (float) afterDiscount) == 0) {
             return 0;
-        return 0;
+        }
+        return (((float) beforeDiscount - (float) afterDiscount) / (float) beforeDiscount) * (float) 100.0; 
     }
-    public static float getOriginalPrice(int discountedPrice, float discountPercentage) {
-        return (discountedPrice * (100 * ((1/100)-discountPercentage)));
+    public static int getDiscountedPrice(int price, float discountPercentage) {
+        if (discountPercentage >= 100.0) {
+            return 0;
+        }
+        return (int) ((float) price * ((float) 100.0 - discountPercentage) / 100.0);
     }
-    public static float getAdminFeePercentage(){
-        return (5/100);
+    public static int getOriginalPrice(int discountedPrice, float discountPercentage) {
+        return (int) ((float) discountedPrice * (100.0 / (100.0 - discountPercentage)));
     }
-    public static float getAdminFee(int price){
-        return price * getAdminFeePercentage();
+    public static float getAdminFeePercentage() {
+        return (float) 0.05;
     }
-    public static float getTotalPrice(int price, int numberOfNight) {
-        int total = price * numberOfNight;
-        return (total + (total * getAdminFeePercentage()));
+    public static int getAdminFee(int price) {
+        return (int) ((float) price * getAdminFeePercentage());
+    }
+    public static int getTotalPrice(int price,int numberOfNight) {
+        return (numberOfNight * (price + getAdminFee(price)));
+    } 
+    public static Room createRoom(){
+        Price price = new Price (100000, 5);
+        Room room = new Room ("hotel", 30, price, Facility.Bathtub);
+        return room;
     }
 }
