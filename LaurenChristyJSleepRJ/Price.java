@@ -3,8 +3,10 @@ package LaurenChristyJSleepRJ;
 public class Price{
     public double price;
     public double rebate;
+    public double discount;
+    /*
     public int discount;
-    
+    */
     public Price (double price){
         this.price = price;
         this.discount = 0;
@@ -15,6 +17,8 @@ public class Price{
          this.discount = discount;
          this.rebate = 0;
     }
+    
+    /*
     public Price (double price, double rebate) {
          this.price = price;
          this.rebate = rebate;
@@ -22,6 +26,8 @@ public class Price{
     }
     private double getDiscountedPrice(){
         if (this.discount >= 100){
+            discount = 100;
+        }else if (this.discount == 100){
             return 0.0;
         }
         return this.price - (this.price * (this.discount / 100));
@@ -31,7 +37,8 @@ public class Price{
             rebate = price;
         }
         return this.price - this.rebate;
-    }
-}
+    } 
+    */
+} 
 
 
