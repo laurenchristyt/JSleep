@@ -1,6 +1,6 @@
 package LaurenChristyJSleepRJ;
 
-public class Voucher
+public class Voucher extends Serializable
 {
     public Type type;
     public double cut;
@@ -9,16 +9,17 @@ public class Voucher
     public double minimum;
     private boolean used;
     
-    public Voucher(String name, int code, Type type, double minimum, double cut) {
+    public Voucher(int id, String name, int code, Type type, boolean used, double minimum, double cut){
+        super(id);
         this.name = name;
         this.code = code;
         this.type = type;
+        this.used = used;
         this.minimum = minimum;
         this.cut = cut;
-        this.used = false;
     }
     public boolean canApply(Price price){
-        if((price.price >= this.minimum) && (used == false)){
+        if((price.price >= this.minimum) && (this.used == false)){
             return true;
         } else {
             return false;
@@ -29,7 +30,7 @@ public class Voucher
         if(this.type == type.DISCOUNT){
             if(this.cut > 100){
                 this.cut = 100.0;
-            } else if (cut == 100){
+            } else if (this.cut == 100){
                 return 0;
             }
             return price.price - (price.price * (this.cut/100.0));
@@ -41,6 +42,6 @@ public class Voucher
         }
     }
     public boolean isUsed (){
-        return this.used;
+        return this.used = used;
     }
 }
