@@ -13,6 +13,6 @@ public class Account extends Serializable
        this.password = password;
     }
     public String toString(){
-        return "Name: " + this.name + "\n" + "Email: " + this.email + "\n" + "Password: " + this.password + "\n";
+        return "ID: " + id + "\n" + "Name: " + this.name + "\n" + "Email: " + this.email + "\n" + "Password: " + this.password + "\n";
     }
 }
