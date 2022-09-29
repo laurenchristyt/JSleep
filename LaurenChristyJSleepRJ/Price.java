@@ -12,12 +12,14 @@ public class Price{
         this.discount = 0;
         this.rebate = 0;
     }
-    public Price (double price, int discount){
+    public Price (double price, double discount){
          this.price = price;
          this.discount = discount;
          this.rebate = 0;
     }
-    
+    public String toString(){
+        return "Price: " + this.price + "\n" + "Discount: " + this.discount + "\n";
+    }
     /*
     public Price (double price, double rebate) {
          this.price = price;

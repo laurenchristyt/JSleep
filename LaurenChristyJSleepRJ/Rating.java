@@ -26,4 +26,7 @@ public class Rating
             return this.total / this.count;
         }
     }
+    public String toString(){
+        return "Total: " + this.total + "\n" + "Count: " + this.count + "\n";
+    }
 }
