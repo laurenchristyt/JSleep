@@ -1,6 +1,6 @@
 package LaurenChristyJSleepRJ;
 
-public class Account extends Serializable
+public class Account extends Serializable implements FileParser
 {
     public String name;
     public String email;
@@ -14,5 +14,14 @@ public class Account extends Serializable
     }
     public String toString(){
         return "ID: " + id + "\n" + "Name: " + this.name + "\n" + "Email: " + this.email + "\n" + "Password: " + this.password + "\n";
+    }
+    
+    @Override
+    public boolean read (String content){
+        return false;
+    }
+    @Override
+    public Object write(){
+        return null;
     }
 }

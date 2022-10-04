@@ -1,6 +1,6 @@
 package LaurenChristyJSleepRJ;
 
-public class Room extends Serializable
+public class Room extends Serializable implements FileParser
 {
     public int size;
     public String name;
@@ -23,5 +23,14 @@ public class Room extends Serializable
         return "ID: " + id + "\n" + "Name: " + this.name + "\n" + "Size: " + this.size + "\n" + 
         this.price + "Facility: " + this.facility + "\n" + 
         "City: " + this.city + "\n" + "Address: " + this.address + "\n";
+    }
+    
+    @Override
+    public boolean read (String content){
+        return false;
+    }
+    
+    public Object write(){
+        return null;
     }
 }
