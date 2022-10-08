@@ -2,7 +2,7 @@
 comment0.target=Price
 comment1.params=price
 comment1.target=Price(double)
-comment1.text=\r\n\ \ \ \ public\ int\ discount;\r\n
+comment1.text=\r\n\ \ \ \ public\ int\ discount\r\n
 comment2.params=price\ discount
 comment2.target=Price(double,\ double)
 comment3.params=
