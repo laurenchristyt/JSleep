@@ -1,5 +1,5 @@
 package LaurenChristyJSleepRJ;
 
-public interface Predicate{
+public interface Predicate<T>{
 	public boolean predicate(T value);
 }
