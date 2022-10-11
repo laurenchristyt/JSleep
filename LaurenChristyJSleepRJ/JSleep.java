@@ -1,7 +1,9 @@
 package LaurenChristyJSleepRJ;
 
 import java.sql.Date;
+import java.util.Scanner;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class JSleep {
     public static void main(String[] args) {
@@ -65,6 +67,11 @@ public class JSleep {
         Date end4 = Date.valueOf("2022-8-15");
         System.out.println(Payment.makeBooking(start4, end4,RoomA));
         */
+    	ArrayList<Room> RoomSerialized = new ArrayList<Room>();
+         for (int i=0; i<5; i++) {
+             RoomSerialized.add(i, JSleep.createRoom());
+             System.out.println(RoomSerialized.get(i).toString());
+         }
     }
     
     /*
