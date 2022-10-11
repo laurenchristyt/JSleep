@@ -10,6 +10,14 @@ public class Payment extends Invoice  {
     public Date to;
     private int roomId;
 
+    public Payment(int id, Account buyer, Renter renter, int roomId, Date
+            from, Date to) {
+        super(id, buyer, renter);
+        this.from = from;
+        this.to = to;
+        this.roomId = roomId;
+    }
+    
     public Payment(int id, int buyerId, int renterId, int roomId, Date
             from, Date to) {
         super(id, buyerId, renterId);
@@ -17,14 +25,6 @@ public class Payment extends Invoice  {
         this.to = to;
         this.roomId = roomId;
 
-    }
-
-    public Payment(int id, Account buyer, Renter renter, int roomId, Date
-            from, Date to) {
-        super(id, buyer, renter);
-        this.from = from;
-        this.to = to;
-        this.roomId = roomId;
     }
 
     public String getTime(){
@@ -42,16 +42,11 @@ public class Payment extends Invoice  {
         }
 
         return true;
-
-
-
-
     }
 
     public static boolean makeBooking(Date from,Date to,Room room){
         if(to.before(from))
             return false;
-
 
         if(availability(from, to, room)){
             while (from.before(to)){
@@ -60,19 +55,15 @@ public class Payment extends Invoice  {
                 c.setTime(from);
                 c.add(Calendar.DATE, 1);
                 from = c.getTime();
-            }return true;
+            } return true;
 
-        }return false;
+        } return false;
 
     }
 
     public String print() {
-        return 	"Buyer Id : " + buyerId + " " +
-                "Renter Id : " + renterId + " " +
-                "Time : " + time + " " +
-                "Room Id : " + roomId + " " +
-                "To : " + to + "\n\n" +
-                "From : " + from + " " ;
+        return 	"Buyer Id : " + buyerId + "\n" + "Renter Id : " + renterId + "\n" + "Time : " + time + "\n" + "Room Id : " + roomId + "\n" +
+                "To : " + to + "\n" + "From : " + from;
                 
     }
 

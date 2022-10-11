@@ -1,6 +1,7 @@
 package LaurenChristyJSleepRJ;
 
 import java.sql.Date;
+import java.util.HashMap;
 
 public class JSleep {
     public static void main(String[] args) {
@@ -42,7 +43,7 @@ public class JSleep {
         System.out.println(Validate.filter(unfilteredArray, 12000, true));
         System.out.println("Above 10000.0");
         System.out.println(Validate.filter(unfilteredArray, 10000, false));
-        */
+        
         Room RoomA = JSleep.createRoom();
         Room RoomB = JSleep.createRoom();
         System.out.println("Membuat booking dari tanggal 15 hingga 18");
@@ -57,13 +58,13 @@ public class JSleep {
         Date start3 = Date.valueOf("2022-8-18");
         Date end3 = Date.valueOf("2022-8-20");
         System.out.println(Payment.makeBooking(start3, end3, RoomB));
-        /*Error Handling*/
+        /*Error Handling*//*
         System.out.println("\n");
         System.out.println("Membuat booking dari tanggal 20 hingga 15");
         Date start4 = Date.valueOf("2022-8-20");
         Date end4 = Date.valueOf("2022-8-15");
         System.out.println(Payment.makeBooking(start4, end4,RoomA));
-
+        */
     }
     
     /*
