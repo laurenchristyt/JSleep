@@ -67,7 +67,7 @@ public class JSleep {
         Date end4 = Date.valueOf("2022-8-15");
         System.out.println(Payment.makeBooking(start4, end4,RoomA));
         */
-    	ArrayList<Room> RoomSerialized = new ArrayList<Room>();
+        ArrayList<Room> RoomSerialized = new ArrayList<Room>();
          for (int i=0; i<5; i++) {
              RoomSerialized.add(i, JSleep.createRoom());
              System.out.println(RoomSerialized.get(i).toString());
@@ -113,8 +113,8 @@ public class JSleep {
     } 
     */
     public static Room createRoom(){
-        Price price = new Price (100000, 5);
-        Room room = new Room(12,"Restaurant",30,price,Facility.AC,City.JAKARTA,"Jl.Medan");
+        Price price = new Price (100000.0, 5);
+        Room room = new Room("Restaurant",30,price,Facility.AC,City.JAKARTA,"Jl.Medan");
         return room;
     } 
 }

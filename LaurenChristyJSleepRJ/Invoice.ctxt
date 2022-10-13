@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Invoice
-comment1.params=id\ buyer\ renter
-comment1.target=Invoice(int,\ Account,\ Renter)
-comment2.params=id\ buyerId\ renterId
-comment2.target=Invoice(int,\ int,\ int)
+comment1.params=buyer\ renter
+comment1.target=Invoice(Account,\ Renter)
+comment2.params=buyerId\ renterId
+comment2.target=Invoice(int,\ int)
 comment3.params=
 comment3.target=java.lang.String\ print()
 numComments=4

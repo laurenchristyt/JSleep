@@ -4,6 +4,75 @@ import java.util.stream.Collectors;
 import java.util.*;
 
 public class Algorithm {
+	// PT Modul 5
+    public static <T> List<T> collect(Iterable<T> iterable, T value) {
+        List<T> newList = new ArrayList<T>();
+        for (final T var : iterable){
+            if (var.equals(value))
+                newList.add(var);
+            else return null;
+        }return newList;
+    }
+    public static <T> List<T> collect(Iterable<T> iterable,Predicate<T> predikat){
+        List<T> newList = new ArrayList<T>();
+        for (final T var : iterable){
+            if(predikat.predicate(var))
+                newList.add(var);
+            else return null;
+        }return newList;
+    }
+    public static <T> List<T> collect(T[] array,T value) {
+        List<T> newList = new ArrayList<T>();
+        for (final T var : array){
+            if (var.equals(value))
+                newList.add(var);
+            else return null;
+        }return newList;
+    }
+    public static <T> List<T> collect(T[] array,Predicate<T> predikat){
+        List<T> newList = new ArrayList<T>();
+        for (final T var : array){
+            if (var.equals(predikat))
+                newList.add(var);
+            else return null;
+        }return newList;
+    }
+    public static <T> List<T>collect(Iterator<T> iterator,Predicate<T> predikat) {
+        List<T> newList = new ArrayList<T>();
+        for (Iterator<T> iter = iterator; iter.hasNext();){
+        	T var = iter.next();
+        	if (var.equals(predikat))
+                newList.add(var);
+            else return null;
+        }return newList;
+    }
+    public static <T> List<T>collect(Iterator<T> iterator,T value) {
+        List<T> newList = new ArrayList<T>();
+        for (Iterator<T> iter = iterator; iter.hasNext();){
+        	T var = iter.next();
+            if (var.equals(value))
+                newList.add(var);
+            else return null;
+        }return newList;
+    }
+    public static <T> List<T> paginate(Iterator<T> iterator,int page,int pageSize,Predicate<T> predikat) {
+        List<T> newList = new ArrayList<T>();
+        while (iterator.hasNext()) {
+            final T var = iterator.next();
+            if (predikat.equals(var))
+                newList.add(var);
+        }return newList;
+    }
+    public static <T> List<T> paginate(T[] array,int page,int pageSize,Predicate<T> predikat) {
+        final Iterator<T> var = Arrays.stream(array).iterator();
+        return paginate(var, page, pageSize, predikat);
+    }
+    public static <T> List<T> paginate(Iterable<T> iterable,int page,int pageSize,Predicate<T> predikat) {
+        final Iterator<T> var = iterable.iterator();
+        return paginate(var,page,pageSize,predikat);
+    }
+    
+    // CS Modul 5
 	private Algorithm(){	
 	}
     public static <T> int count(Iterator<T> iterator, T value) {
@@ -53,7 +122,6 @@ public class Algorithm {
         while(iterator.hasNext()) {
             if(predikat.predicate(iterator.next()))
                 return true;
-        }
-        return false;
+        }return false;
     }
 }

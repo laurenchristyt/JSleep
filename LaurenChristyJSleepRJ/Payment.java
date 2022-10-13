@@ -10,25 +10,22 @@ public class Payment extends Invoice  {
     public Date to;
     private int roomId;
 
-    public Payment(int id, Account buyer, Renter renter, int roomId, Date
-            from, Date to) {
-        super(id, buyer, renter);
+    public Payment(Account buyer, Renter renter, int roomId, Date from, Date to) {
+        super(buyer, renter);
         this.from = from;
         this.to = to;
         this.roomId = roomId;
     }
     
-    public Payment(int id, int buyerId, int renterId, int roomId, Date
-            from, Date to) {
-        super(id, buyerId, renterId);
+    public Payment(int buyerId, int renterId, int roomId, Date from, Date to) {
+        super(buyerId, renterId);
         this.from = from;
         this.to = to;
         this.roomId = roomId;
-
     }
 
     public String getTime(){
-        SimpleDateFormat SDFormat = new SimpleDateFormat("Formatted Date = dd MMMM yyy");
+        SimpleDateFormat SDFormat = new SimpleDateFormat("'Formatted Date' = dd MMMM yyy");
         return SDFormat.format(this.from.getTime());
     }
 
@@ -40,7 +37,6 @@ public class Payment extends Invoice  {
             if((i.after(from) && i.before(to)) || i.equals(from))
                 return false;
         }
-
         return true;
     }
 
@@ -62,16 +58,13 @@ public class Payment extends Invoice  {
     }
 
     public String print() {
-        return 	"Buyer Id : " + buyerId + "\n" + "Renter Id : " + renterId + "\n" + "Time : " + time + "\n" + "Room Id : " + roomId + "\n" +
-                "To : " + to + "\n" + "From : " + from;
+        return "Id : " + id + "\n" +"Buyer Id : " + buyerId + "\n" + "Renter Id : " + 
+        renterId + "\n" + "Time : " + time + "\n" + "Room Id : " + roomId + "\n" + 
+        "To : " + to + "\n" + "From : " + from;
                 
     }
 
     public int getRoomId(){
         return this.roomId;
     }
-
-
-}
-
 }

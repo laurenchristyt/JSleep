@@ -14,8 +14,7 @@ public class Room extends Serializable implements FileParser
     public BedType bedType;
     public ArrayList<Date> booked;
     
-    public Room (int id, String name, int size, Price price, Facility facility, City city, String address){
-        super(id);
+    public Room (String name, int size, Price price, Facility facility, City city, String address){
         this.name = name;
         this.size = size;
         this.price = price;
@@ -26,9 +25,9 @@ public class Room extends Serializable implements FileParser
         this.booked = new ArrayList<Date>();
     } 
     public String toString(){
-        return "ID: " + id + "\n" + "Name: " + this.name + "\n" + "Size: " + this.size + "\n" + 
-        this.price + "Facility: " + this.facility + "\n" + 
-        "City: " + this.city + "\n" + "Address: " + this.address + "\n";
+        return "Name: " + this.name + "\n" + "Bedtype: " + this.bedType + "\n" + "Size: " + this.size + "\n" + 
+        this.price + "\n" + "Facility: " + this.facility + "\n" + 
+        "City: " + this.city + "\n" + "Address: " + this.address + "\n" + "ID: " + id + "\n";
     }
     
     @Override
