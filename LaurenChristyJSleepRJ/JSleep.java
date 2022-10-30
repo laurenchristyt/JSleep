@@ -4,9 +4,35 @@ import java.sql.Date;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+import com.google.gson.*;
+
 
 public class JSleep {
+	class Country{
+		public String name;
+		public int population;
+		public List<String> listOfStates;
+	}
     public static void main(String[] args) {
+    	String filepath= "C:\\Users\\laure\\Downloads\\Resource TP Modul 6-20221030\\city.json";
+    	Gson gson = new Gson();
+    	try {
+    		BufferedReader br = new BufferedReader(new FileReader(filepath));
+    		Country input = gson.fromJson(br, Country.class);
+    		System.out.println("name: " + input.name);
+    		System.out.println("population: " + input.population);
+    		System.out.println("states: ");
+    		input.listOfStates.forEach(state -> System.out.println(state));
+    		
+    	}
+    	
+    	catch (IOException e) {
+    		e.printStackTrace();
+    	}
         /*Room test = createRoom();
         System.out.println(test.name);
         System.out.println(test.size);
@@ -66,12 +92,12 @@ public class JSleep {
         Date start4 = Date.valueOf("2022-8-20");
         Date end4 = Date.valueOf("2022-8-15");
         System.out.println(Payment.makeBooking(start4, end4,RoomA));
-        */
+        
         ArrayList<Room> RoomSerialized = new ArrayList<Room>();
          for (int i=0; i<5; i++) {
              RoomSerialized.add(i, JSleep.createRoom());
              System.out.println(RoomSerialized.get(i).toString());
-         }
+         }*/
     }
     
     /*
