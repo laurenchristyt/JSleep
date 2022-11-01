@@ -1,10 +1,8 @@
 package LaurenChristyJSleepRJ;
 
-import java.sql.Date;
-import java.util.Scanner;
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.io.BufferedReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -18,7 +16,21 @@ public class JSleep {
 		public List<String> listOfStates;
 	}
     public static void main(String[] args) {
-    	String filepath= "C:\\Users\\laure\\Downloads\\Resource TP Modul 6-20221030\\city.json";
+    	
+    	try
+        {
+            String filepath = "json/randomRoomList.json";
+
+            JsonTable<Room> tableRoom = new JsonTable<>(Room.class, filepath);
+            List<Room> filterTab1eRoom = filterByCity(tableRoom, "medan", 0, 5);
+            filterTab1eRoom.forEach(room -> System.out.println(room.toString()));
+        }
+        catch (Throwable t)
+        {
+            t. printStackTrace() ;
+        }
+    	
+    	/*String filepath= "C:\\Users\\laure\\Downloads\\Resource TP Modul 6-20221030\\city.json";
     	Gson gson = new Gson();
     	try {
     		BufferedReader br = new BufferedReader(new FileReader(filepath));
@@ -33,7 +45,7 @@ public class JSleep {
     	catch (IOException e) {
     		e.printStackTrace();
     	}
-        /*Room test = createRoom();
+        Room test = createRoom();
         System.out.println(test.name);
         System.out.println(test.size);
         System.out.println(test.price.price);
@@ -100,6 +112,17 @@ public class JSleep {
          }*/
     }
     
+    public static List<Room> filterByCity(List<Room> list, String search, int page, int pageSize){
+        return Algorithm.<Room>paginate(list, page, pageSize, i  -> i.city == City.valueOf(search.toUpperCase()));
+    }
+    
+    public static List<Room> filterByAccountId(List<Room> list, int accountId, int page, int pageSize){
+        return Algorithm.<Room>paginate(list, page, pageSize, a  -> a.accountId == accountId);
+    }
+    
+    public static List<Room> filterByPrice(List<Room> list, double minPrice, double maxPrice){
+    	return Algorithm.<Room>collect(list, p -> (p.price.price <= maxPrice) && (p.price.price >= minPrice));
+    }
     /*
     public static int getHotelId() {
         return 0;
@@ -119,12 +142,7 @@ public class JSleep {
         }
         return (((float) beforeDiscount - (float) afterDiscount) / (float) beforeDiscount) * (float) 100.0; 
     }
-    public static int getDiscountedPrice(int price, float discountPercentage) {
-        if (discountPercentage >= 100.0) {
-            return 0;
-        }
-        return (int) ((float) price * ((float) 100.0 - discountPercentage) / 100.0);
-    }
+
     public static int getOriginalPrice(int discountedPrice, float discountPercentage) {
         return (int) ((float) discountedPrice * (100.0 / (100.0 - discountPercentage)));
     }
@@ -140,7 +158,7 @@ public class JSleep {
     */
     public static Room createRoom(){
         Price price = new Price (100000.0, 5);
-        Room room = new Room("Restaurant",30,price,Facility.AC,City.JAKARTA,"Jl.Medan");
+        Room room = new Room(1, "Restaurant",30,price,Facility.AC,City.JAKARTA,"Jl.Medan");
         return room;
     } 
 }

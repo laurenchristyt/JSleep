@@ -1,6 +1,6 @@
 package LaurenChristyJSleepRJ;
 
-public class Voucher extends Serializable implements FileParser
+public class Voucher extends Serializable
 {
     public Type type;
     public double cut;
@@ -44,12 +44,6 @@ public class Voucher extends Serializable implements FileParser
         return this.used = used;
     }
     
-    @Override
-    public boolean read (String content){
-        return false;
-    }
-    @Override
-    public Object write(){
-        return null;
-    }
+    
+   
 }

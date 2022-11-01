@@ -3,7 +3,7 @@ package LaurenChristyJSleepRJ;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Room extends Serializable implements FileParser
+public class Room extends Serializable
 {
     public int size;
     public String name;
@@ -13,9 +13,11 @@ public class Room extends Serializable implements FileParser
     public String address;
     public BedType bedType;
     public ArrayList<Date> booked;
+    public int accountId;
     
-    public Room (String name, int size, Price price, Facility facility, City city, String address){
-        this.name = name;
+    public Room (int accountId, String name, int size, Price price, Facility facility, City city, String address){
+        this.accountId = accountId;
+    	this.name = name;
         this.size = size;
         this.price = price;
         this.facility = facility;
@@ -25,17 +27,17 @@ public class Room extends Serializable implements FileParser
         this.booked = new ArrayList<Date>();
     } 
     public String toString(){
-        return "Name: " + this.name + "\n" + "Bedtype: " + this.bedType + "\n" + "Size: " + this.size + "\n" + 
+        return "ID: " + this.id + "\n" + "Name: " + this.name + "\n" + "Bedtype: " + this.bedType + "\n" + "Size: " + this.size + "\n" + 
         this.price + "\n" + "Facility: " + this.facility + "\n" + 
-        "City: " + this.city + "\n" + "Address: " + this.address + "\n" + "ID: " + id + "\n";
+        "City: " + this.city + "\n" + "Address: " + this.address + "\n";
     }
     
-    @Override
+    /*@Override
     public boolean read (String content){
         return false;
-    }
+    } 
     
     public Object write(){
         return null;
-    }
+    } */
 }
