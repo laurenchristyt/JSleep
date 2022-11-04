@@ -1,12 +1,15 @@
 package LaurenChristyJSleepRJ;
 
 import java.io.BufferedReader;
+import java.util.regex.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.List;
 import com.google.gson.*;
+import java.util.ArrayList;
 
 
 public class JSleep {
@@ -17,13 +20,20 @@ public class JSleep {
 	}
     public static void main(String[] args) {
     	
+     //   Account testRegex = new Account("Netlab_", "lauren.christy@gmail.com", "AkuLelah100");
+       // System.out.println(testRegex.Validate());
+        
+       // Account testRegexFail = new Account("NetlabAja", "lauren.christy@ui.ac.id", "AkuLelah101");
+        //System.out.println(testRegexFail.Validate());
+        
     	try
         {
             String filepath = "json/randomRoomList.json";
 
-            JsonTable<Room> tableRoom = new JsonTable<>(Room.class, filepath);
-            List<Room> filterTab1eRoom = filterByCity(tableRoom, "medan", 0, 5);
-            filterTab1eRoom.forEach(room -> System.out.println(room.toString()));
+            JsonTable<Account> tableAcc = new JsonTable<Account>(Account.class, filepath);
+            tableAcc.add(new Account("name","email","pass"));
+            tableAcc.writeJson();
+            
         }
         catch (Throwable t)
         {
@@ -110,18 +120,26 @@ public class JSleep {
              RoomSerialized.add(i, JSleep.createRoom());
              System.out.println(RoomSerialized.get(i).toString());
          }*/
+    	
+        for(int i = 0; i <= 9;i++) {
+            ThreadingObject thread = new ThreadingObject ("Thread " +i);
+        }
     }
     
-    public static List<Room> filterByCity(List<Room> list, String search, int page, int pageSize){
-        return Algorithm.<Room>paginate(list, page, pageSize, i  -> i.city == City.valueOf(search.toUpperCase()));
+    public static List<Room> filterByCity(List <Room> list , String search, int page, int pageSize){
+        return Algorithm.paginate(list, page, pageSize, c -> c.city.toString().toLowerCase().contains(search.toLowerCase()));
     }
-    
-    public static List<Room> filterByAccountId(List<Room> list, int accountId, int page, int pageSize){
-        return Algorithm.<Room>paginate(list, page, pageSize, a  -> a.accountId == accountId);
+
+    public static List<Room> filterByPrice(List<Room> priceList, double minPrice, double maxPrice){
+        if(maxPrice == 0){
+            return Algorithm.<Room>collect(priceList, p -> (p.price.price >= minPrice));
+        }
+        return Algorithm.<Room>collect(priceList, p -> (p.price.price <= maxPrice) && (p.price.price >= minPrice));
     }
-    
-    public static List<Room> filterByPrice(List<Room> list, double minPrice, double maxPrice){
-    	return Algorithm.<Room>collect(list, p -> (p.price.price <= maxPrice) && (p.price.price >= minPrice));
+
+    public static List<Room>  filterByAccountId(List <Room> list , int accountId, int page, int pageSize){
+        ArrayList<Room> idid = new ArrayList<>();
+        return Algorithm.paginate(list, page, pageSize, i -> i.accountId == accountId);
     }
     /*
     public static int getHotelId() {
