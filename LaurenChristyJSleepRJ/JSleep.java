@@ -20,24 +20,23 @@ public class JSleep {
 	}
     public static void main(String[] args) {
     	
-     //   Account testRegex = new Account("Netlab_", "lauren.christy@gmail.com", "AkuLelah100");
-       // System.out.println(testRegex.Validate());
+    //    Account testRegex = new Account("Netlab_", "lauren.christy@gmail.com", "AkuLelah100");
+    //  System.out.println(testRegex.Validate());
         
-       // Account testRegexFail = new Account("NetlabAja", "lauren.christy@ui.ac.id", "AkuLelah101");
-        //System.out.println(testRegexFail.Validate());
+   //     Account testRegexFail = new Account("NetlabAja", "lauren.christy@ui.ac.id", "AkuLelah101");
+   //     System.out.println(testRegexFail.Validate());
         
-    	try
-        {
-            String filepath = "json/randomRoomList.json";
+        String filepath = "D:\\UI\\tugas\\JSleep\\JSleep\\json\\account.json";
+        try{
+            JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);
+            tableAccount.add(new Account("name", "email", "password"));
 
-            JsonTable<Account> tableAcc = new JsonTable<Account>(Account.class, filepath);
-            tableAcc.add(new Account("name","email","pass"));
-            tableAcc.writeJson();
-            
+            JsonTable.writeJson(tableAccount, filepath);
+            tableAccount.forEach(System.out::println);
+            System.out.println(tableAccount);
         }
-        catch (Throwable t)
-        {
-            t. printStackTrace() ;
+        catch (IOException e){
+            throw new RuntimeException(e);
         }
     	
     	/*String filepath= "C:\\Users\\laure\\Downloads\\Resource TP Modul 6-20221030\\city.json";
