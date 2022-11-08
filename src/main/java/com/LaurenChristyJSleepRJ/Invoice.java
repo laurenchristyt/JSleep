@@ -2,6 +2,7 @@ package com.LaurenChristyJSleepRJ;
 
 import java.util.Date;
 import java.util.Calendar;
+import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 
 public class Invoice extends Serializable
 {

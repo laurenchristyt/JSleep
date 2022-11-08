@@ -1,5 +1,6 @@
 package com.LaurenChristyJSleepRJ;
 
+import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,11 +38,11 @@ public class Renter extends Serializable
     }
     
     public boolean Validate() {
-        Pattern namePat = Pattern.compile(REGEX_NAME);
-        Matcher nameMatch = namePat.matcher(username);
+        Pattern namePat = Pattern.compile(this.REGEX_NAME);
+        Matcher nameMatch = namePat.matcher(this.username);
         boolean nameFound = nameMatch.find();
-        Pattern numPat = Pattern.compile(REGEX_PHONE);
-        Matcher numMatch = numPat.matcher(phoneNumber);
+        Pattern numPat = Pattern.compile(this.REGEX_PHONE);
+        Matcher numMatch = numPat.matcher(this.phoneNumber);
         boolean numFound = numMatch.find();
 
         if(nameFound && numFound)

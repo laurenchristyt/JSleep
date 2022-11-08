@@ -1,5 +1,6 @@
 package com.LaurenChristyJSleepRJ;
 
+import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 public class Complaint extends Serializable
 {
     public String desc;

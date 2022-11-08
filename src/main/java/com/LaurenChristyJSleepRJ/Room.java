@@ -1,5 +1,6 @@
 package com.LaurenChristyJSleepRJ;
 
+import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 

@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.List;
+
+import com.LaurenChristyJSleepRJ.dbjson.JsonDBEngine;
 import com.google.gson.*;
 import java.util.ArrayList;
 import org.springframework.boot.SpringApplication;
@@ -23,13 +25,15 @@ public class JSleep {
 	}
 
     public static void main(String[] args) {
+        JsonDBEngine.Run(JSleep.class);
         SpringApplication.run(JSleep.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
     //    Account testRegex = new Account("Netlab_", "lauren.christy@gmail.com", "AkuLelah100");
     //  System.out.println(testRegex.Validate());
 
    //     Account testRegexFail = new Account("NetlabAja", "lauren.christy@ui.ac.id", "AkuLelah101");
    //     System.out.println(testRegexFail.Validate());
-
+/*
         String filepath = "D:\\UI\\tugas\\JSleep\\JSleep\\json\\account.json";
         try{
             JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);

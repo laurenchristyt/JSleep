@@ -3,12 +3,16 @@ package com.LaurenChristyJSleepRJ;
 import java.util.regex.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 
 public class Account extends Serializable
 {
     public String name;
     public String email;
     public String password;
+    public double balance;
+    public Renter renter;
+
     public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$";
     public static final String REGEX_EMAIL = "^[a-zA-Z0-9]+@[a-zA-Z.]+\\.[a-zA-Z]+?$";
  
