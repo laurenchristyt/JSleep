@@ -1,7 +1,6 @@
 package com.LaurenChristyJSleepRJ;
 
-import com.LaurenChristyJSleepRJ.dbjson.Serializable;
-public class Voucher extends Serializable
+public class Voucher extends BedType.Serializable
 {
     public Type type;
     public double cut;

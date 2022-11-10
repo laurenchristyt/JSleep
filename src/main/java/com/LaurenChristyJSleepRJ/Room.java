@@ -1,10 +1,9 @@
 package com.LaurenChristyJSleepRJ;
 
-import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Room extends Serializable
+public class Room extends BedType.Serializable
 {
     public int size;
     public String name;

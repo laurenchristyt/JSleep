@@ -4,7 +4,7 @@ public class ThreadingObject extends Thread {
 	public ThreadingObject(String name)
 	{
         super(name);
-        this.start();
+        start();
     }
 
 	

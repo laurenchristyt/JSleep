@@ -2,11 +2,16 @@ package com.LaurenChristyJSleepRJ.dbjson;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.Collections;
 import java.util.Vector;
+
+/**
+ * Class JSON Table digunakan untuk r/w JSON file
+ * @author ()
+ * @version (1-11-2022)
+ */
 
 public class JsonTable<T> extends Vector<T> {
     private static final Gson gson = new Gson();

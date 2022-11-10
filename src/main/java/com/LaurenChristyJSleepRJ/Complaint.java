@@ -1,7 +1,6 @@
 package com.LaurenChristyJSleepRJ;
 
-import com.LaurenChristyJSleepRJ.dbjson.Serializable;
-public class Complaint extends Serializable
+public class Complaint extends BedType.Serializable
 {
     public String desc;
     public String date;

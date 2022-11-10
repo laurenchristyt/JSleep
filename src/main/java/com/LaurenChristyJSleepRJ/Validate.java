@@ -1,5 +1,5 @@
 package com.LaurenChristyJSleepRJ;
-    
+
 import java.util.ArrayList;
 
 public class Validate {

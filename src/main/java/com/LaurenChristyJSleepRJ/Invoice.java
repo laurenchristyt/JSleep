@@ -1,41 +1,45 @@
 package com.LaurenChristyJSleepRJ;
-
-import java.util.Date;
-import java.util.Calendar;
 import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 
-public class Invoice extends Serializable
-{
-    public enum PaymentStatus
-    {
-    FAILED, WAITING, SUCCESS
-    }
-    public enum RoomRating
-    {
-    NONE, BAD, NEUTRAL, GOOD
-    }
-    
+
+
+public class Invoice extends Serializable {
     public int buyerId;
     public int renterId;
-    public Date time;
     public PaymentStatus status;
     public RoomRating rating;
-    
-    public Invoice(Account buyer, Renter renter){
-        this.buyerId= buyer.id;
-        this.renterId= renter.id;
-        this.time = new Date();
-        this.rating = RoomRating.NONE;
-        this.status = PaymentStatus.WAITING;
+    /**
+     * Inner enum
+     */
+    public enum RoomRating {
+        NONE, BAD, NEUTRAL, GOOD
     }
-    protected Invoice(int buyerId, int renterId){
+
+    public enum PaymentStatus {
+        FAILED, WAITING, SUCCESS
+    }
+
+    /**
+     * Constructor for objects of class Invoice
+     */
+    protected Invoice(int buyerId, int renterId) {
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = new Date();
-        this.rating = RoomRating.NONE;
-        this.status = PaymentStatus.WAITING;
+        status = PaymentStatus.WAITING;
+        rating = RoomRating.NONE;
     }
-    public String print(){
-        return "Id : " + this.id + "\n" + "Buyer ID = " + this.buyerId + "\n" + "Renter ID = " + this.renterId + "\n" + "Time =" + this.time + "\n";
+
+    public Invoice(Account buyer, Renter renter) {
+        this.buyerId = buyer.id;
+        this.renterId = renter.id;
+        status = PaymentStatus.WAITING;
+        rating = RoomRating.NONE;
+    }
+
+    /**
+     * @return String dari attribute dari kelas Invoice
+     */
+    public String print() {
+        return ("Buyer ID : " + buyerId + ", Renter ID : " + renterId);
     }
 }
