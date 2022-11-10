@@ -19,33 +19,8 @@ public class PaymentController implements BasicGetController<Payment> {
     public JsonTable<Payment> getJsonTable() {
         return paymentTable;
     }
-    @PostMapping("/create")
-    public Payment create(
-            @RequestParam int buyerId,
-            @RequestParam int renterId,
-            @RequestParam int roomId,
-            @RequestParam String from,
-            @RequestParam String to
-    )throws ParseException {
-        double price;
-        Account buyer = Algorithm.<Account>find(AccountController.accountTable, predikat -> predikat.id == buyerId);
-        Room room = Algorithm.<Room>find(RoomController.roomTable, predikat -> predikat.id == roomId);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        Date toDate = sdf.parse(to);
-        Date fromDate = sdf.parse(from);
 
-        price = room.price.price;
-        if (room == null || buyer == null || !Payment.availability(fromDate, toDate, room)) {
-            return null;
-
-            Payment payment = new Payment(buyerId, renterId, roomId, fromDate, toDate);
-            payment.status = Invoice.PaymentStatus.WAITING;
-            Payment.makeBooking(fromDate, toDate, room);
-            paymentTable.add(payment);
-            return payment;
-        }
-    }}
     @PostMapping("/submit")
     public boolean submit(@RequestParam int id) {return false;
     }
