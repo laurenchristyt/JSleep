@@ -1,5 +1,4 @@
 package com.LaurenChristyJSleepRJ;
-
-public interface Predicate<T>{
-    public abstract boolean predicate(T arg);
+public interface Predicate <T> {
+    public abstract boolean predicate(T args);
 }

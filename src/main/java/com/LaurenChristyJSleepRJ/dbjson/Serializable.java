@@ -2,38 +2,33 @@ package com.LaurenChristyJSleepRJ.dbjson;
 
 import java.util.HashMap;
 
-public class Serializable implements Comparable<Serializable> {
+public class Serializable implements Comparable<Serializable>
+{
     public final int id;
-    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<Class<?>, Integer>();
-
+    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
+    /**
+     * Constructor for objects of class Serializable
+     */
     public Serializable() {
         Integer counter = mapCounter.get(getClass());
-        if (counter == null){
-            counter =  0;
-        }
-        else{
-            counter +=1;
-        }
+        //ternary
+        counter = counter == null? 0 : counter + 1;
         mapCounter.put(getClass(), counter);
         this.id = counter;
     }
-
-    public static <T> Integer setClosingId(Class<T> clazz, int id) { return mapCounter.put(clazz, id); }
-
-    public static <T> Integer getClosingId(Class<T> clazz) { return mapCounter.get(clazz); }
-
-    public boolean equals(Object other)
-    {
-        return other instanceof Serializable && ((Serializable) other).id == id;
+    public int compareTo(Serializable otherS) {
+        return Integer.compare(id, otherS.id);
     }
-
-    public boolean equals(Serializable other)
-    {
-        return other.id == id;
+    public boolean equals(Object obj) {
+        return obj instanceof Serializable && ((Serializable) obj).id == id;
     }
-
-    public int compareTo(Serializable other)
-    {
-        return Integer.compare(this.id, other.id);
+    public boolean equals(Serializable serial) {
+        return serial.id == id;
+    }
+    public static <T> Integer getClosingId(Class<T> cls) {
+        return mapCounter.get(cls);
+    }
+    public static <T> Integer setClosingId(Class<T> cls, int i) {
+        return mapCounter.put(cls, i);
     }
 }

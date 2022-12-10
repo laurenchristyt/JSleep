@@ -1,6 +1,4 @@
 package com.LaurenChristyJSleepRJ;
-
-public enum Type
-{
-    REBATE, DISCOUNT  
+public enum Type {
+    REBATE, DISCOUNT
 }

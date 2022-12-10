@@ -3,6 +3,9 @@ package com.LaurenChristyJSleepRJ;
 import java.util.ArrayList;
 
 public class Validate {
+    public Validate() {
+
+    }
     public static ArrayList filter (Price[] list, int value, boolean less){
         ArrayList filteredPrice = new ArrayList();
         if(less == true) {

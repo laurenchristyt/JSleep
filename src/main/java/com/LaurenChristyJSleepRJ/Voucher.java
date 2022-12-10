@@ -1,6 +1,8 @@
 package com.LaurenChristyJSleepRJ;
 
-public class Voucher extends BedType.Serializable
+import com.LaurenChristyJSleepRJ.dbjson.Serializable;
+
+public class Voucher extends Serializable
 {
     public Type type;
     public double cut;
@@ -8,8 +10,8 @@ public class Voucher extends BedType.Serializable
     public int code;
     public double minimum;
     private boolean used;
-    
-    public Voucher(int id, String name, int code, Type type, boolean used, double minimum, double cut){
+
+    public Voucher(String name, int code, Type type, boolean used, double minimum, double cut){
         this.name = name;
         this.code = code;
         this.type = type;
@@ -28,9 +30,9 @@ public class Voucher extends BedType.Serializable
         this.used = true;
         if(this.type == type.DISCOUNT){
             if(this.cut > 100){
-                this.cut = 100.0;
+                return 0.0;
             } else if (this.cut == 100){
-                return 0;
+                return 0.0;
             }
             return price.price - (price.price * (this.cut/100.0));
         } else {
@@ -43,7 +45,7 @@ public class Voucher extends BedType.Serializable
     public boolean isUsed (){
         return this.used = used;
     }
-    
-    
-   
+
+
+
 }

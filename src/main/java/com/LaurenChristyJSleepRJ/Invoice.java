@@ -1,45 +1,42 @@
 package com.LaurenChristyJSleepRJ;
+
 import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 
-
-
 public class Invoice extends Serializable {
-    public int buyerId;
     public int renterId;
-    public PaymentStatus status;
+    public int buyerId;
     public RoomRating rating;
-    /**
-     * Inner enum
-     */
-    public enum RoomRating {
-        NONE, BAD, NEUTRAL, GOOD
-    }
+    public PaymentStatus status;
 
     public enum PaymentStatus {
         FAILED, WAITING, SUCCESS
     }
 
-    /**
-     * Constructor for objects of class Invoice
-     */
-    protected Invoice(int buyerId, int renterId) {
-        this.buyerId = buyerId;
-        this.renterId = renterId;
-        status = PaymentStatus.WAITING;
-        rating = RoomRating.NONE;
+    public enum RoomRating {
+        NONE, BAD, NEUTRAL, GOOD
     }
 
-    public Invoice(Account buyer, Renter renter) {
-        this.buyerId = buyer.id;
+    public Invoice(Account buyer, Renter renter)
+    {
         this.renterId = renter.id;
+        this.buyerId = buyer.id;
+
+        status = com.LaurenChristyJSleepRJ.Invoice.PaymentStatus.WAITING;
+        rating = com.LaurenChristyJSleepRJ.Invoice.RoomRating.NONE;
+    }
+
+    protected Invoice(int buyerId, int renterId)
+    {
+
+        this.renterId = renterId;
+        this.buyerId = buyerId;
+
         status = PaymentStatus.WAITING;
         rating = RoomRating.NONE;
     }
 
-    /**
-     * @return String dari attribute dari kelas Invoice
-     */
+
     public String print() {
-        return ("Buyer ID : " + buyerId + ", Renter ID : " + renterId);
+        return ("buyer ID : " + buyerId + "\n" + "renter ID: " + renterId + "\n");
     }
 }

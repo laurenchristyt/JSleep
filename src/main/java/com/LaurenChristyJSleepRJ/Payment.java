@@ -2,8 +2,14 @@ package com.LaurenChristyJSleepRJ;
 import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.util.concurrent.TimeUnit;
-import org.springframework.web.bind.annotation.RequestParam;
+
+/**
+ * Class invoice digunakan untuk menuliskan pembayaran,
+ * berisi pihak-pihak transaksi dan id room yang dibayarkan
+ *
+ * @author (Bernanda)
+ * @version (29-10-2022)
+ */
 public class Payment extends Invoice {
     public Date to;
     public Date from;
@@ -57,7 +63,6 @@ public class Payment extends Invoice {
         }
         return true;
     }
-
 
     public static boolean makeBooking(Date from, Date to, Room room) {
         if(availability(from, to, room)){

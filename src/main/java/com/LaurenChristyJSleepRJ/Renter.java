@@ -3,14 +3,15 @@ package com.LaurenChristyJSleepRJ;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.LaurenChristyJSleepRJ.dbjson.Serializable;
+
 public class Renter extends Serializable
 {
     public String phoneNumber;
     public String address;
     public String username;
 
-    public static final String REGEX_NAME = "^[A-Z]{1}\\w{4,20}$";
-    public static final String REGEX_PHONE = "^\\d{9,12}$";
+    public static final String REGEX_NAME  = "^[A-Z]{1}\\w{4,20}(?!\\s)$" ;
+    public static final String REGEX_PHONE = "^\\d{9,12}(?!\\s)$";
 
     /*
     public Renter(int id, String username){
@@ -43,9 +44,11 @@ public class Renter extends Serializable
         Pattern numPat = Pattern.compile(REGEX_PHONE);
         Matcher numMatch = numPat.matcher(phoneNumber);
         boolean numFound = numMatch.find();
+
         if(nameFound && numFound)
             return true;
         else
             return false;
     }
 }
+
