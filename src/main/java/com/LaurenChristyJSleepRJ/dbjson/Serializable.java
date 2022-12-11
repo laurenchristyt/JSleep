@@ -2,12 +2,28 @@ package com.LaurenChristyJSleepRJ.dbjson;
 
 import java.util.HashMap;
 
+/**
+ * A base class for objects that can be serialized and assigned an ID.
+ *
+ * <p>This class provides an ID field and a simple mechanism for assigning unique IDs to objects of subclasses.
+ * It also provides methods for comparing objects by ID and for managing the ID counter for each subclass.</p>
+ *
+ * @author Lauren Christy Tanudjaja
+ * @version 1.0
+ */
 public class Serializable implements Comparable<Serializable>
 {
     public final int id;
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
+
     /**
-     * Constructor for objects of class Serializable
+     * Construct a new `Serializable` object and assign it a unique ID.
+     *
+     * This constructor creates a new `Serializable` object and assigns it an ID based on the ID counter for its class.
+     * If this is the first object of its class to be constructed, its ID will be 1.
+     * Otherwise, it will be one greater than the ID of the previous object of the same class.
+     *
+     * @see #mapCounter
      */
     public Serializable() {
         Integer counter = mapCounter.get(getClass());

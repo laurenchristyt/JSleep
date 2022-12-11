@@ -2,6 +2,15 @@ package com.LaurenChristyJSleepRJ;
 
 import java.util.*;
 
+/**
+ * A utility class that provides a collection of static methods for working with collections of objects.
+ *
+ * This class contains methods for filtering, transforming, and counting objects in collections.
+ * It supports arrays, `Iterable` objects, and `Iterator` objects as input.
+ *
+ * @author Lauren Christy Tanudjaja
+ * @version 1.0
+ */
 public class Algorithm {
     private Algorithm() {
     }

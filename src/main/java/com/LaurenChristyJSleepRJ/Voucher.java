@@ -2,15 +2,44 @@ package com.LaurenChristyJSleepRJ;
 
 import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 
+/**
+ * The `Voucher` class represents a voucher that can be applied to reduce the price of a room.
+ *
+ * @author  Lauren Christy Tanudjaja
+ * @version 1.0
+ * @see Serializable
+ */
 public class Voucher extends Serializable
 {
+    /**
+     * The type of voucher (rebate or discount).
+     */
     public Type type;
-    public double cut;
-    public String name;
-    public int code;
-    public double minimum;
-    private boolean used;
 
+    /**
+     * The amount of the voucher.
+     */
+    public double cut;
+
+    /**
+     * The name of the voucher.
+     */
+    public String name;
+
+    /**
+     * The unique code of the voucher.
+     */
+    public int code;
+
+    /**
+     * The minimum price required for the voucher to be applied.
+     */
+    public double minimum;
+
+    /**
+     * A boolean value indicating whether the voucher has been used.
+     */
+    private boolean used;
     public Voucher(String name, int code, Type type, boolean used, double minimum, double cut){
         this.name = name;
         this.code = code;

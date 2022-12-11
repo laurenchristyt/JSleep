@@ -4,17 +4,40 @@ import java.util.ArrayList;
 import java.util.Date;
 import com.LaurenChristyJSleepRJ.dbjson.Serializable;
 
+/**
+ * This class represents a room.
+ *
+ * @author Lauren Christy Tanudjaja
+ * @version 1.0
+ */
 public class Room extends Serializable
 {
-    public int accountId;
-    public int size;
+    /** The name of the room. */
     public String name;
-    public String address;
-    public ArrayList<Facility> facility = new ArrayList<Facility>();
+
+    /** The size of the room in square meters. */
+    public int size;
+
+    /** The price of the room. */
     public Price price;
+
+    /** The facilities available with the room. */
+    public ArrayList<Facility> facility= new ArrayList<>();
+
+    /** The address of the room. */
+    public String address;
+
+    /** The type of bed in the room. */
     public BedType bedType;
+
+    /** The city where the room is located. */
     public City city;
-    public ArrayList<Date> booked = new ArrayList<Date>();
+
+    /** The ID of the account that owns the room. */
+    public int accountId;
+
+    /** The dates on which the room is booked. */
+    public ArrayList<Date> booked;
 
     public Room (int accountId, String name, int size, Price price, ArrayList<Facility> facility, City city, String address, BedType bedType){
         this.accountId = accountId;

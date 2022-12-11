@@ -18,6 +18,17 @@ import java.util.List;
 import com.google.gson.*;
 import java.util.ArrayList;
 
+/**
+ * The main class of the JSleep application.
+ *
+ * <p>This class contains the `main()` method, which is the entry point of the application.
+ * It also uses the `@SpringBootApplication` annotation to enable Spring Boot auto-configuration and component scanning.</p>
+ *
+ * @author Lauren Christy Tanudjaja
+ * @version 1.0
+ * @see JsonDBEngine
+ * @see SpringBootApplication
+ */
 @SpringBootApplication
 public class JSleep {
 

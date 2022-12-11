@@ -10,13 +10,32 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * A REST controller that provides methods to create, accept, cancel, and submit payments.
+ *
+ * <p>This class implements the {@link BasicGetController} interface, which provides methods to
+ * get a single object by ID and to get a page of objects from the `JsonTable Payment` that stores the data.</p>
+ *
+ * @author Lauren Christy Tanudjaja
+ * @see Payment
+ */
 @RestController
 @RequestMapping("/payment")
 public class PaymentController implements BasicGetController<Payment> {
+    /**
+     * A `JsonTable` that stores payment data.
+     *
+     * @JsonAutowired indicates that this field should be initialized with data from the specified file.
+     */
     @JsonAutowired
             (value = Payment.class, filepath = "src/json/payment.json")
     public static JsonTable<Payment> paymentTable;
 
+    /**
+     * Returns the `JsonTable` object that stores the payment data.
+     *
+     * @return The `JsonTable` object that stores the payment data.
+     */
     public JsonTable<Payment> getJsonTable() {
         return paymentTable;
     }

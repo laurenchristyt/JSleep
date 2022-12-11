@@ -2,6 +2,12 @@ package com.LaurenChristyJSleepRJ;
 
 import java.util.ArrayList;
 
+/**
+ * The `Validate` class provides a method for filtering an array of `Price` objects based on a specified value and condition.
+ *
+ * @author Lauren Christy Tanudjaja
+ * @version 1.0
+ */
 public class Validate {
     public Validate() {
 

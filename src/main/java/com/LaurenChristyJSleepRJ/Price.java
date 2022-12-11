@@ -1,25 +1,51 @@
 package com.LaurenChristyJSleepRJ;
 
-public class Price{
+/**
+ * This class represents a price for a room.
+ *
+ * <p>The price can have a discount applied to it, and a rebate can be provided as well.</p>
+ *
+ * @author Lauren Christy Tanudjaja
+ */
+public class Price {
+    /**
+     * The base price of the room.
+     */
     public double price;
-    //public double rebate;
-    public double discount;
-    //public int discount;
 
-    public Price (double price){
+    /**
+     * The discount applied to the price as a percentage (e.g. 20 for 20%).
+     */
+    public double discount;
+
+    /**
+     * Constructs a new Price instance with the given base price and no discount.
+     *
+     * @param price The base price of the room
+     */
+    public Price(double price) {
         this.price = price;
         this.discount = 0;
-        //    this.rebate = 0;
     }
-    public Price (double price, double discount){
+
+    /**
+     * Constructs a new Price instance with the given base price and discount.
+     *
+     * @param price    The base price of the room
+     * @param discount The discount that will be applied to the original price
+     */
+    public Price(double price, double discount) {
         this.price = price;
         this.discount = discount;
-        //     this.rebate = 0;
     }
-    public String toString(){
-        return "Price: " + this.price + "\n" + "Discount: " + this.discount + "\n";
-    }
-    /*
+
+    /**
+     * This method is used to show the price and discount of a room.
+     *
+     * @return String of price and discount
+     */
+    public String toString() {
+        return "\nPrice: " + price + "\nDiscount: " + discount;   /*
     public Price (double price, double rebate) {
          this.price = price;
          this.rebate = rebate;
@@ -40,6 +66,7 @@ public class Price{
         return this.price - this.rebate;
     }
     */
+    }
 }
 
 
